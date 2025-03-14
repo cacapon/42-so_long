@@ -29,7 +29,7 @@ fclean: clean
 	rm -f $(NAME)
 
 mlx:
-	@$(MAKE) re -C mlx/
+	@$(MAKE) -C mlx/
 
 re: fclean all
 

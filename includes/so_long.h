@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saeby <saeby@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ttsubo <ttsubo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 20:15:40 by saeby             #+#    #+#             */
-/*   Updated: 2022/12/11 20:11:57 by saeby            ###   ########.fr       */
+/*   Updated: 2025/03/14 13:28:44 by ttsubo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <X11/keysym.h>
 
 // main.c
 int		render(t_vars *vars);
