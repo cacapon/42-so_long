@@ -7,14 +7,16 @@ GNL_OBJ := $(GNL_SRC:%.c=%.o)
 PRINTF_OBJ := $(PRINTF_SRC:%.c=%.o)
 
 CCFLAGS = -Wextra -Wall -Werror
+MCFLAGS = -framework OpenGL -framework AppKit
+LXFLAGS = -lX11 -lXext
 
 all: $(NAME)
 
 $(NAME):$(OBJ) $(GNL_OBJ) $(PRINTF_OBJ)
-	gcc $(CCFLAGS) $^ -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	gcc $(CCFLAGS) $^ -Lmlx -lmlx $(LXFLAGS) -o $(NAME)
 
 debug: $(OBJ) $(GNL_OBJ) $(PRINTF_OBJ)
-	gcc $(CCFLAGS) -fsanitize=address $^ -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	gcc $(CCFLAGS) -fsanitize=address $^ -Lmlx -lmlx $(LXFLAGS) -o $(NAME)
 
 %.o: %.c
 	gcc $(CCFLAGS) -Imlx -Iincludes -c $< -o $@
@@ -30,3 +32,5 @@ mlx:
 	@$(MAKE) re -C mlx/
 
 re: fclean all
+
+.PHONY: all clean fclean mlx re
